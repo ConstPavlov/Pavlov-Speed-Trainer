@@ -1,0 +1,18 @@
+@import '../../app/scss/variables';
+.customCaret {
+	position: absolute;
+	margin: 5px 0px 0px 0px;
+	width: 2px;
+	height: 23px;
+	background-color: $primary;
+	border-radius: 8px;
+	animation: opacAnim 1s step-start infinite;
+	// pointer-events: none;
+	z-index: 10;
+}
+
+@keyframes opacAnim {
+	50% {
+		opacity: 0;
+	}
+}

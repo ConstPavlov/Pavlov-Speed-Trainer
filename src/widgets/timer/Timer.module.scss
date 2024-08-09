@@ -1,0 +1,30 @@
+.timeNumBlock {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@media (max-width: 400px) {
+		margin-bottom: 1rem;
+	}
+	span {
+		margin-left: 5px;
+	}
+}
+
+.innerBlock {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@media (max-width: 400px) {
+		flex-direction: column;
+	}
+
+	.baseBtns {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.6rem;
+		margin-right: 1.1rem;
+	}
+}

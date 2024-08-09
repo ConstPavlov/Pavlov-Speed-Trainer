@@ -1,0 +1,21 @@
+@import '../../../app//scss/variables.scss';
+.btnSec {
+	background-color: $primary;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	transition:
+		background-color 0.3s ease,
+		transform 0.2s ease;
+	&:hover {
+		background-color: #0056b3;
+		transform: scale(1.05);
+	}
+
+	&:active {
+		background-color: #003d80;
+		transform: scale(0.95);
+	}
+}

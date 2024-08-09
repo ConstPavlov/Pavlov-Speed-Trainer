@@ -1,0 +1,131 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 800px;
+	margin: 24px auto;
+	padding: 20px;
+	background-color: #f8f9fa;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	@media (max-width: 320px) {
+		padding: 16px;
+	}
+
+	.title {
+		font-size: 20px;
+		font-weight: 500;
+		font-weight: 300;
+		color: rgb(20, 21, 27);
+		text-align: center;
+
+		@media (max-width: 574px) {
+			font-size: 18px;
+		}
+	}
+	.results {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 1rem;
+		margin-bottom: 1.4rem;
+
+		.subtitle {
+			margin-top: 8px;
+			font-size: 14px;
+			font-weight: 500;
+		}
+		.labels {
+			display: grid;
+			grid-template-columns: repeat(
+				5,
+				minmax(0, 1fr)
+			); // Колонки автоматически растягиваются
+			background-color: #e9ecef;
+			padding: 10px;
+			border-radius: 8px;
+			font-weight: bold;
+			color: #495057;
+			text-align: center;
+			@media (max-width: 574px) {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				font-size: 12px;
+				.rights {
+					display: none;
+				}
+				.time {
+					display: none;
+				}
+			}
+		}
+
+		.result {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(
+				5,
+				minmax(0, 1fr)
+			); // Колонки автоматически растягиваются
+			background-color: #ffffff;
+			padding: 10px;
+			border-radius: 8px;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+			color: #495057;
+			font-size: 16px;
+
+			@media (max-width: 574px) {
+				grid-template-columns: repeat(
+					3,
+					minmax(0, 1fr)
+				); // Уменьшить количество колонок на меньших экранах
+				font-size: 14px;
+				.rights {
+					display: none;
+				}
+				.time {
+					display: none;
+				}
+			}
+
+			& > div {
+				text-align: center;
+			}
+
+			&:nth-child(even) {
+				background-color: #c3e0ff;
+			}
+		}
+	}
+}
+
+@media (max-width: 320px) {
+	.wrapper {
+		padding: 16px;
+		.results {
+			margin-top: 0.5rem;
+			margin-bottom: 1rem;
+		}
+	}
+
+	.title {
+		font-size: 14px;
+	}
+
+	.subtitle {
+		font-size: 12px;
+	}
+
+	.labels,
+	.result {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		font-size: 12px;
+	}
+
+	.labels {
+		padding: 8px;
+	}
+
+	.result {
+		padding: 8px;
+	}
+}

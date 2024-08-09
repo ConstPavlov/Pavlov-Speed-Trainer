@@ -1,0 +1,21 @@
+@import '../../app/scss/variables';
+.logo {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.title {
+		text-decoration: none;
+		color: #000000;
+		font-size: 0.95rem;
+		margin-right: 1rem;
+	}
+	.ico {
+		font-size: 32px;
+		color: $secondary;
+		transition: color 0.4s ease-in-out 0s;
+		&:hover {
+			color: black;
+		}
+	}
+}

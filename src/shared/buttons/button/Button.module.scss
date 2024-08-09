@@ -1,0 +1,21 @@
+@import '../../../app/scss/variables';
+.button {
+	text-decoration: none;
+	border: none;
+	display: flex;
+	align-items: center;
+	color: black;
+	border-radius: 14px;
+	padding: 0.44rem 1.55rem;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: 1.1rem;
+	background-color: rgb(234, 236, 246);
+	transition: background-color 0.4s ease-in-out;
+	box-shadow: 1px 2px 8px rgba(76, 56, 223, 0.5);
+
+	&:hover {
+		background-color: rgba(156, 170, 236, 0.333);
+		box-shadow: 1px 2px 30px $secondary;
+	}
+}
