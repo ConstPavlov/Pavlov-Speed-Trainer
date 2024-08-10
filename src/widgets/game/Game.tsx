@@ -15,7 +15,7 @@ import { strs } from '../../shared'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../features/store/store'
 import { startTimer } from '../../features/store/timer/slice'
-import { setStartGame } from '../../features/store/game/slice'
+import { setStartGame, setText } from '../../features/store/game/slice'
 import { useDispatch } from 'react-redux'
 import { useCaretPosition } from '../../features/hooks/useCaretka'
 import { useInputEvents } from '../../features/hooks/useInputEvents'
@@ -51,16 +51,14 @@ const Game = () => {
 	})
 
 	React.useEffect(() => {
-		if (isMounted.current) {
-			if (!textOfGame) {
-				const text = randomizer(strs, 25)
-				const jsonObj = JSON.stringify(text)
-				setToLS(jsonObj, 'text')
-				// setToLS([], 'results')
-			}
-		}
-		isMounted.current = true
-	}, [textOfGame])
+		// Если текст уже есть, ничего не делаем
+		if (textOfGame.length > 0) return
+
+		const text = randomizer(strs, 25)
+		const jsonObj = JSON.stringify(text)
+		setToLS(jsonObj, 'text')
+		dispatch(setText(25))
+	}, [textOfGame, dispatch])
 
 	React.useEffect(() => {
 		updateCaretPosition()

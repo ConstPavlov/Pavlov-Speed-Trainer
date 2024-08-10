@@ -29,7 +29,16 @@
 		transition:
 			opacity 0.5s ease-in-out,
 			visibility 0.5s ease;
-
+		@media (max-width: 650px) {
+			top: 100%;
+			left: -100%;
+		}
+		@media (max-width: 5300px) {
+			top: 100%;
+			left: -100%;
+			width: 200px;
+			white-space: inherit;
+		}
 		.title {
 			font-weight: 500;
 			margin-bottom: 6px;
