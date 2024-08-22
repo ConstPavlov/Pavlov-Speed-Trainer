@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { motion } from 'framer-motion'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { InputRefProvider } from '../../app/context/InputRefContext'
@@ -26,10 +27,15 @@ const Home: FC = () => {
 	return (
 		<div className={styles.home}>
 			<Logo />
-			<h1 className={styles.title}>
+			<motion.h1
+				className={styles.title}
+				initial={{ opacity: 0, scale: 0.5, color: '#47a0ff' }} // Начальное состояние
+				animate={{ opacity: 1, scale: 1, color: '#000' }} // Конечное состояние
+				transition={{ duration: 2, ease: 'easeInOut' }} // Параметры анимации
+			>
 				Добро пожаловать в тренажер. Выберите опции и начните улучшать скорость
 				своего печатания!
-			</h1>
+			</motion.h1>
 			{isFinal === true && (
 				<div className={styles.modal}>
 					<div className={styles.wrapper}>

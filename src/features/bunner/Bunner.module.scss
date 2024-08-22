@@ -1,6 +1,7 @@
 @import '../../app/scss/variables';
 .banner {
 	height: 300px;
+	overflow: hidden; /* Скрывает переполнение */
 	background-color: rgba(0, 145, 255, 0.363);
 	display: flex;
 	align-items: center;

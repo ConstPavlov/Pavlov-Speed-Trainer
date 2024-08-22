@@ -25,6 +25,9 @@ import {
 } from '../../features/index'
 import { useInputRefContext } from '../../app/context/InputRefContext'
 import TimesButtons from '../../features/buttons/times/TimesButtons'
+import { motion } from 'framer-motion'
+import { CALM_ENTRY, transitionEinO } from '../../shared/animate/animate'
+import { setClicked } from '../../features/store/banner/slice'
 
 // Виджет таймера, опций таймера , также включение алализатора теста и в конце калькуляцию и сохранение результатов в Local Storage
 const Timer = () => {
@@ -56,7 +59,6 @@ const Timer = () => {
 		setTimeout(() => {
 			blurInput()
 		}, 0)
-		dispatch(toggleBanner(false))
 		dispatch(calculateResult())
 		dispatch(saveResult())
 		dispatch(resetAnswers())
@@ -64,6 +66,13 @@ const Timer = () => {
 		dispatch(setStopGame())
 		dispatch(setValue(''))
 		dispatch(resetCaretPosition())
+		setTimeout(() => {
+			dispatch(setClicked(true))
+			setTimeout(() => {
+				dispatch(setClicked(false))
+				dispatch(toggleBanner(false))
+			}, 1000)
+		}, 0)
 	}, [inputRef])
 
 	useEffect(() => {
@@ -92,7 +101,16 @@ const Timer = () => {
 				<h2>{timeLeft === 0 ? 'Время вышло!' : ''}</h2>
 				{timeLeft !== 0 && (
 					<>
-						<h1>{timeLeft}</h1>
+						<motion.div
+							key={timeLeft}
+							initial='initial'
+							animate='animate'
+							exit='exit'
+							variants={CALM_ENTRY}
+							transition={transitionEinO}
+						>
+							<h1>{timeLeft}</h1>
+						</motion.div>
 						<span>секунд</span>
 					</>
 				)}

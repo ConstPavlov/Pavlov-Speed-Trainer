@@ -3,10 +3,12 @@ import { RootState } from '../store'
 
 interface BannerState {
 	isBanner: boolean
+	isClicked: boolean
 }
 
 const initialState: BannerState = {
-	isBanner: false
+	isBanner: false,
+	isClicked: false
 }
 
 export const bannerSlice = createSlice({
@@ -15,11 +17,14 @@ export const bannerSlice = createSlice({
 	reducers: {
 		toggleBanner: (state, action) => {
 			state.isBanner = action.payload
+		},
+		setClicked: (state, action) => {
+			state.isClicked = action.payload
 		}
 	}
 })
 
-export const { toggleBanner } = bannerSlice.actions
+export const { toggleBanner, setClicked } = bannerSlice.actions
 
 export const bannerData = (state: RootState) => state.banner
 
